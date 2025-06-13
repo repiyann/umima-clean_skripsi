@@ -17,6 +17,7 @@
   } from '~/lib/components/ui/dialog'
   import { Clock, MapPin, ShoppingCart } from '@lucide/svelte'
   import image from '~/lib/assets/image.png'
+  import { Separator } from '~/lib/components/ui/separator'
 
   // State variables
   let cartItems: CartItem[] = $state([])
@@ -197,31 +198,41 @@
   }
 </script>
 
-<div>
-  <div class="relative h-48">
-    <img src={image} alt="CleanPro Storefront" class="w-full object-cover" />
+<!-- Service Header Section -->
+<div class="relative">
+  <!-- Hero image with shadow and rounded bottom corners -->
+  <div class="relative h-32 shadow-md">
+    <img src={image} alt="CleanPro Storefront" class="w-full h-40 rounded-b-3xl" />
   </div>
-  <div class="bg-white mt-12 rounded-lg relative p-2 shadow-sm">
-    <div class="flex items-center justify-center gap-3 mb-2">
-      <h1 class="text-xl font-bold">Umima Clean</h1>
-    </div>
 
-    <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg border mb-1">
-      <MapPin class="w-5 h-5 text-gray-600" />
-      <span class="text-gray-800">
+  <!-- Business information section -->
+  <div class="mt-12">
+    <!-- Business name -->
+    <h1 class="text-2xl font-bold text-gray-800 text-center">Umima Clean</h1>
+
+    <!-- Address section with icon -->
+    <div class="flex items-center mt-3 px-6 py-2 mx-4 bg-white rounded-lg shadow-sm">
+      <MapPin class="w-6 h-6 mr-2" />
+      <p class="text-sm text-gray-600">
         Jl. Margacinta No. 132, Margasari, Kec. Buahbatu, Kota Bandung
-      </span>
+      </p>
     </div>
 
-    <div class="flex items-center gap-2 p-2 bg-gray-50 border rounded-lg">
-      <Clock class="w-5 h-5 text-gray-600" />
-      <span class="text-gray-800">Buka setiap hari 10:00 - 20:00</span>
+    <!-- Operating hours section with icon -->
+    <div class="flex items-center mt-2 px-6 py-2 mx-4 bg-white rounded-lg shadow-sm">
+      <Clock class="w-5 h-5 mr-2" />
+      <p class="text-sm text-gray-600">Buka setiap hari 10:00 - 20:00</p>
     </div>
   </div>
 </div>
 
+<!-- Visual separator -->
+<div class="flex justify-center mt-3">
+  <Separator class="data-[orientation=horizontal]:w-[300px]" />
+</div>
+
 <!-- Main container -->
-<div class="p-4">
+<div class="px-4 pb-4 pt-2">
   <!-- Sticky navbar with navigation tabs -->
   <div
     class="sticky z-50 p-1 bg-white my-3 border rounded-lg border-gray-200 {scrolled > 0
@@ -372,11 +383,11 @@
             </DialogTrigger>
 
             <!-- Cart details dialog -->
-            <DialogContent class="max-w-screen-sm">
+            <DialogContent class="w-sm">
               <DialogHeader>
-                <DialogTitle class="flex items-center space-x-2">
-                  <ShoppingCart class="h-5 w-5" />
-                  <span>Detail Pesanan</span>
+                <DialogTitle class="flex items-center">
+                  <ShoppingCart class="h-5 w-5 mr-2" />
+                  Detail Pesanan
                 </DialogTitle>
               </DialogHeader>
 
